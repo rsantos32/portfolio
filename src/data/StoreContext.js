@@ -26,7 +26,14 @@ export const stateInitial = {
             descricao: 'Implemento soluções customizadas e estratégias de negócios junto a sua equipe de desenvolvimento.',
             thumb: 'https://placehold.co/100x80'
         },
-    ]
+    ],
+    contato: {
+        nome: '',
+        email: '',
+        telefone: '',
+        assunto: '',
+        mensagem: ''
+    }
 }
 
 export const StoreContext = createContext(stateInitial);

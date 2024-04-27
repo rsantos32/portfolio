@@ -37,7 +37,7 @@ export default function Sobre() {
                 </div>
                 <div className="col-sm-12 col-md-6 col-lg-4">
                     <h6 className="mt-4">Banco de Dados</h6>
-                    <ProgressBar itemName="" perc="0" cor="" />
+                    <ProgressBar itemName="SQL Server" perc="60" cor="bg-warning" />
                     <ProgressBar itemName="MondoDB" perc="45" cor="bg-success" />
                     <ProgressBar itemName="MySQL" perc="75" cor="bg-primary" />
                     <ProgressBar itemName="PostgreSQL" perc="75" cor="bg-danger" />
