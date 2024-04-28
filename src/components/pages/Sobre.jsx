@@ -1,12 +1,13 @@
 
 import ProgressBar from "../ui/progressBar/ProgressBar";
+import foto from './../../static/img/foto.jpg';
 
 export default function Sobre() {
     return (
-        <section className="section">
+        <section className="section" id="sobre">
             <div className="row d-flex mb-3">
                 <div className="col-sm-12 col-md-6">
-                    <img src="https://placehold.co/320x300" alt="foto" className="w-100 img-fluid img-thumbnail rounded-circle" />
+                    <img src={foto} alt="foto" className="w-100 img-fluid img-thumbnail" />
                 </div>
                 <div className="col-sm-12 col-md-6">
                     <h3 className="my-3">Sobre mim</h3>
@@ -26,7 +27,7 @@ export default function Sobre() {
                     <ProgressBar itemName="CSS" perc="90" cor="bg-info" />
                     <ProgressBar itemName="JavaScript" perc="75" cor="bg-success" />
                     <ProgressBar itemName="PHP" perc="90" cor="bg-primary" />
-                    <ProgressBar itemName="JAVA" perc="50" cor="bg-danger" />
+                    <ProgressBar itemName="JAVA Web" perc="50" cor="bg-danger" />
                 </div>
                 <div className="col-sm-12 col-md-6 col-lg-4">
                     <h6 className="mt-4">Frameworks</h6>

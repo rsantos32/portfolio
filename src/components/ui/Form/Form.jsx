@@ -5,7 +5,8 @@ import { stateInitial } from '../../../data/StoreContext'
 export default function Form() {
 
     const [store, dispatch] = useReducer(ContatoReducer, stateInitial)
-    const [alert, setAlert] = useState('')
+    const [alertText, setAlertText] = useState('')
+    const [alertType, setAlertType] = useState('info')
 
 
     function changeInput(e) {
@@ -32,7 +33,8 @@ export default function Form() {
 
     function validate() {
         if (store.contato.nome === "" || store.contato.nome === null || store.contato.nome === undefined || store.contato.nome.length > 100) {
-            setTimeout(setAlert('O campo nome não esta válido'),3000)
+            setAlertText('O campo nome não esta válido')
+            setAlertType('danger')
             return false
         } else {
             return true
@@ -40,19 +42,27 @@ export default function Form() {
     }
 
     function onSend() {
-        if (validate()) {
-            fetch('http://localhost:8080/rsapi/v1/contato',
-                {
-                    method: 'POST',
-                    data: { ...store.contato }
-                })
-                .then(res => res.json())
-                .then(json => console.log(json))
-                .catch(() => {
-                    setAlert('Erro de conexão com o servidor. Tente novamente mais tarde')
-                })
-            setTimeout(() => setAlert(''), 6000)
-        }
+        //if (validate()) {
+        fetch('http://localhost:8080/rsapi/v1/contato',
+            {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    "Content-Type": 'application/json'
+                },
+                body: JSON.stringify({ ...store.contato })
+            })
+            .then(res => res.json())
+            .then(json => console.log(json))
+            .catch(() => {
+                setAlertText('Erro de conexão com o servidor. Tente novamente mais tarde')
+                setAlertType('danger')
+            })
+        setTimeout(() => {
+            setAlertText('')
+            setAlertType('info')
+        }, 6000)
+        //}
     }
 
     return (
@@ -99,8 +109,8 @@ export default function Form() {
                         value={store.contato.mensagem}
                         onChange={changeInput} />
                 </div>
-                <div className="alert alert-warning">
-                    <strong>{alert ? alert : 'Os campos com * são obrigatórios'}</strong>
+                <div className={`alert alert-${alertType}`}>
+                    <strong>{alertText ? alertText : 'Os campos com * são obrigatórios'}</strong>
                 </div>
                 <div className="form-group float-right">
                     <button onClick={onSend} type="button" className="btn btn-success"><i className="bi bi-send"></i> Enviar</button>

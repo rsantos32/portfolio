@@ -2,7 +2,7 @@ import Form from "../ui/Form/Form";
 
 export default function Conato() {
     return (
-        <section className="section">
+        <section className="section" id="contato">
             <div className="row d-flex">
                 <div className="col-md-12">
                     <h3 className="py-3 text-right">Contato</h3>

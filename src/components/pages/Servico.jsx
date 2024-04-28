@@ -6,7 +6,7 @@ export default function Servico() {
     const [store] = useContext(StoreContext);
 
     return (
-        <section className="section">
+        <section className="section" id="servicos">
             <div className="row d-flex mb-5">
                 <div className="col-sm-12">
                     <h3 className="py-3">Serviços</h3>
