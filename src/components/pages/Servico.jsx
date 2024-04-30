@@ -16,8 +16,10 @@ export default function Servico() {
             <div className="row d-flex">
                 {store.servicos.map((s) => {
                     return <div key={s.id} className="col-sm-12 col-md-6 col-lg-4 col-xl-3 mb-3">
-                        <div className="card" style={{border: 'none', textAlign: 'center'}}>
-                            <img className="card-img-top" src={s.thumb} alt={s.id} />
+                        <div className="card" style={{ border: 'none', textAlign: 'center' }}>
+                            <center>
+                                <img style={{ width: '128px' }} className="card-img-top" src={s.thumb} alt={s.id} />
+                            </center>
                             <div className="card-body">
                                 <h5>{s.titulo}</h5>
                                 <p className="card-text">{s.descricao}</p>

@@ -31,19 +31,8 @@ export default function Form() {
         }
     }
 
-    function validate() {
-        if (store.contato.nome === "" || store.contato.nome === null || store.contato.nome === undefined || store.contato.nome.length > 100) {
-            setAlertText('O campo nome não esta válido')
-            setAlertType('danger')
-            return false
-        } else {
-            return true
-        }
-    }
-
     function onSend() {
-        //if (validate()) {
-        fetch('http://localhost:8080/rsapi/v1/contato',
+        fetch('http://localhost:8080',
             {
                 method: 'POST',
                 mode: 'cors',
@@ -53,7 +42,35 @@ export default function Form() {
                 body: JSON.stringify({ ...store.contato })
             })
             .then(res => res.json())
-            .then(json => console.log(json))
+            .then(json => {
+                if (json.msg === 'Sucesso') {
+                    setAlertText('Obrigado por entrar em contato comigo! Nos vemos em breve.');
+                    setAlertType('success')
+                    dispatch({
+                        type: 'CHANGE_FORM',
+                        value: {
+                            nome: '',
+                            email: '',
+                            telefone: '',
+                            assunto: '',
+                            mensagem: ''
+                        }
+                    })
+                } else {
+                    setAlertText(json.msg === 'Falha' ? '' : json.msg );
+                    setAlertType('warning')
+                    dispatch({
+                        type: 'CHANGE_FORM',
+                        value: {
+                            nome: '',
+                            email: '',
+                            telefone: '',
+                            assunto: '',
+                            mensagem: ''
+                        }
+                    })
+                }
+            })
             .catch(() => {
                 setAlertText('Erro de conexão com o servidor. Tente novamente mais tarde')
                 setAlertType('danger')
@@ -62,12 +79,11 @@ export default function Form() {
             setAlertText('')
             setAlertType('info')
         }, 6000)
-        //}
     }
 
     return (
         <>
-            <form noValidate>
+            <form>
                 <div className="form-group">
                     <label htmlFor="nome">Nome*</label>
                     <input
@@ -104,7 +120,7 @@ export default function Form() {
                     </select>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="msg">Mensagem*</label>
+                    <label htmlFor="mensagem">Mensagem*</label>
                     <textarea rows={3} className="form-control" name="mensagem" id="mensagem"
                         value={store.contato.mensagem}
                         onChange={changeInput} />

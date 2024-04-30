@@ -1,15 +1,45 @@
 
+import { useEffect, useState } from "react";
 import ProgressBar from "../ui/progressBar/ProgressBar";
 import foto from './../../static/img/foto.jpg';
 
 export default function Sobre() {
+
+    const [imgAnime, setimgAnime] = useState('animate__animated animate__fadeInLeft')
+    const [sobreAnime, setsobreAnime] = useState('animate__animated animate__fadeInRight')
+    const [skillAnime, setskillAnime] = useState('animate__animated animate__fadeInUp')
+    const [sobreDisplay, setsobreDisplay] = useState('')
+    const [skillDisplay, setskillDisplay] = useState('')
+
+    useEffect(() => {
+        const doc = document.documentElement
+        window.addEventListener('scroll', () => {
+            let calc = parseInt(100 * doc.scrollTop /(doc.scrollHeight - doc.clientHeight))
+            console.log(calc)
+            if(calc > 5) {
+                setimgAnime('animate__animated animate__fadeInLeft')
+                setsobreAnime('animate__animated animate__fadeInRight')
+                setsobreDisplay('block')
+            } else {
+                setsobreDisplay('none')
+            }
+
+            if(calc >= 30) {
+                setskillAnime('animate__animated animate__fadeInUp animate__slower')
+                setskillDisplay('block')
+            } else {
+                setskillDisplay('none')
+            }
+        })
+    }, [])
+
     return (
         <section className="section" id="sobre">
             <div className="row d-flex mb-3">
                 <div className="col-sm-12 col-md-6">
-                    <img src={foto} alt="foto" className="w-100 img-fluid img-thumbnail" />
+                    <img src={foto} alt="foto" className={`w-100 img-fluid img-thumbnail ${imgAnime}`} style={{display:sobreDisplay}} />
                 </div>
-                <div className="col-sm-12 col-md-6">
+                <div className={`col-sm-12 col-md-6 ${sobreAnime}`} style={{display:sobreDisplay}}>
                     <h3 className="my-3">Sobre mim</h3>
 
                     <p>Olá! seja bem-vindo(a) ao meu portfolio.</p>
@@ -21,7 +51,7 @@ export default function Sobre() {
                     <strong>Minhas principais skills são:</strong>
                 </div>
             </div>
-            <div className="row d-flex">
+            <div className={`row d-flex ${skillAnime} mt-5`} style={{display:skillDisplay}}>
                 <div className="col-sm-12 col-md-6 col-lg-4">
                     <h6 className="mt-4">Linguagens de Programação</h6>
                     <ProgressBar itemName="CSS" perc="90" cor="bg-info" />

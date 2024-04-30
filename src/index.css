@@ -1,6 +1,7 @@
 @import 'normalize.css/normalize.css';
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap-icons/font/bootstrap-icons.min.css';
+@import 'animate.css/animate.css';
 
 .section {
     justify-content: center;
