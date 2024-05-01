@@ -1,28 +1,22 @@
-import { useEffect, useState } from "react"
+import { useRef } from 'react'
+import Bg from './../../static/img/bg.jpg'
+import useAnimation from '../../hooks/useAnimation'
 
 export default function Header() {
 
-    const [h1Anime, seth1Anime] = useState('animate__animated animate__fadeInDown animate__slow')
-    const [h2Anime, seth2Anime] = useState('animate__animated animate__fadeInUp animate__slow')
+    const h1Ref = useRef()
+    const h2Ref = useRef()
 
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY === 0 || window.scrollY < 700) {
-                seth1Anime('animate__animated animate__fadeInDown animate__slow')
-                seth2Anime('animate__animated animate__fadeInUp animate__slow')
-            } else {
-                seth1Anime('')
-                seth2Anime('')
-            }
-        })
-    }, [])
+    const h1Anime = useAnimation(h1Ref, {type: 'fadeInDown', velocity: 'fast', loop: 'repeat-1'})
+    const h2Anime = useAnimation(h2Ref, {type: 'fadeInUp', velocity: 'fast', loop: 'repeat-1'})
+
 
     return (
-        <header className="header" id="home">
-            <div className="container">
-                <h1 className={`text-right mb-5 ${h1Anime}`}>Bem-vindo(a) ao meu universo digital!</h1>
+        <header className="header" id="home" style={{backgroundImage: `url(${Bg})`}}>
+            <div className="container container-header">
+                <h1 ref={h1Ref} className={`mb-5`}>Bem-vindo(a) ao meu universo digital!</h1>
                 <br />
-                <h2 className={h2Anime}>Com um foco na estética, usabilidade e funcionalidade, mergulho de cabeça em cada projeto para trazer à vida ideias inovadoras e soluções sob medida.</h2>
+                <h2 ref={h2Ref} className=''>Com um foco na estética, usabilidade e funcionalidade, mergulho de cabeça em cada projeto para trazer à vida ideias inovadoras e soluções sob medida.</h2>
             </div>
         </header>
     )

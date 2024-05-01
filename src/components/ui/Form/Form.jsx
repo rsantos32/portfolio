@@ -129,7 +129,7 @@ export default function Form() {
                     <strong>{alertText ? alertText : 'Os campos com * são obrigatórios'}</strong>
                 </div>
                 <div className="form-group float-right">
-                    <button onClick={onSend} type="button" className="btn btn-success"><i className="bi bi-send"></i> Enviar</button>
+                    <button onClick={onSend} type="button" className="btn btn-primary"><i className="bi bi-send"></i> Enviar</button>
                 </div>
             </form>
         </>
