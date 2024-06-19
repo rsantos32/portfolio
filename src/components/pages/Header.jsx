@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import Bg from './../../static/img/bg.jpg'
 import useAnimation from '../../hooks/useAnimation'
+import { ReactTyped } from 'react-typed'
 
 export default function Header() {
 
@@ -16,7 +17,7 @@ export default function Header() {
             <div className="container container-header">
                 <h1 ref={h1Ref} className={`mb-5`}>Bem-vindo(a) ao meu universo digital!</h1>
                 <br />
-                <h2 ref={h2Ref} className=''>Com um foco na estética, usabilidade e funcionalidade, mergulho de cabeça em cada projeto para trazer à vida ideias inovadoras e soluções sob medida.</h2>
+                <h2 ref={h2Ref} className=''>Eu sou  <ReactTyped strings={["Consultor","Programador","Técnico de TI"]} typeSpeed={40} backSpeed={50} loop /> </h2>
             </div>
         </header>
     )

@@ -24,12 +24,12 @@ export const stateInitial = {
             descricao: 'Utilizo práticas de otimização de desempenho para garantir que cada site carregue rapidamente e ofereça uma experiência fluida de navegação.',
             thumb: ImgSeo
         },
-        {
+        /*{
             id: 'consultoria',
             titulo: 'Consultoria',
             descricao: 'Implemento soluções customizadas e estratégias de negócios junto a sua equipe de desenvolvimento.',
             thumb: ImgConsul
-        },
+        },*/
     ],
     contato: {
         nome: '',

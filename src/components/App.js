@@ -18,7 +18,7 @@ function App() {
         </StoreContext.Provider>
         <footer className='row d-flex my-5'>
           <div className='col-sm-12 text-center'>
-            <p>Desenvolvido por <strong>Rodrigo Santos</strong> &bull; 2010 - {new Date().getFullYear()} &copy; Todos os direitos reservados.</p>
+            <p>Desenvolvido por <strong>Rodrigo Santos</strong> &bull; 2017 - {new Date().getFullYear()} &copy; Todos os direitos reservados.</p>
           </div>
         </footer>
       </main>
