@@ -17,7 +17,7 @@ export default function Header() {
             <div className="container container-header">
                 <h1 ref={h1Ref} className={`mb-5`}>Bem-vindo(a) ao meu universo digital!</h1>
                 <br />
-                <h2 ref={h2Ref} className=''>Eu sou  <ReactTyped strings={["Consultor","Programador","Técnico de TI"]} typeSpeed={40} backSpeed={50} loop /> </h2>
+                <h2 ref={h2Ref} className=''>Eu sou  <ReactTyped strings={["Consultor de TI","Programador PHP"]} typeSpeed={40} backSpeed={50} loop /> </h2>
             </div>
         </header>
     )

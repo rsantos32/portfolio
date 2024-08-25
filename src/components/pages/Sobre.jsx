@@ -23,8 +23,6 @@ export default function Sobre() {
                 <div className={`col-sm-12 col-md-6`}>
                     <h3 className="my-3">Sobre mim</h3>
                     <p ref={sobreRef}>
-                        Olá! seja bem-vindo(a).
-                        <br /><br />
                         Sou apaixonado por criar experiências online que cativam, envolvem e inspiram.
                         <br /><br />
                         Atuo desde 2013 na aréa de Tecnologia da Informação
@@ -44,27 +42,20 @@ export default function Sobre() {
                     <ProgressBar itemName="JavaScript" perc="75" cor="bg-success" />
                     <ProgressBar itemName="PHP" perc="90" cor="bg-primary" />
                     <ProgressBar itemName="JAVA SE" perc="50" cor="bg-danger" />
+                    <ProgressBar itemName="MySQL" perc="75" cor="bg-primary" />
                 </div>
                 <div className="col-sm-12 col-md-6 col-lg-4">
                     <h5 className="mt-4" ref={skillRef}>Frameworks</h5>
                     <ProgressBar itemName="Bootstrap" perc="90" cor="bg-info" />
-                    <ProgressBar itemName="ReactJS" perc="90" cor="bg-success" />
                     <ProgressBar itemName="Laravel" perc="75" cor="bg-primary" />
-                    <ProgressBar itemName="JAVA EE/SpringBoot" perc="75" cor="bg-danger" />
-                </div>
-                <div className="col-sm-12 col-md-6 col-lg-4">
-                    <h5 className="mt-4" ref={skillRef}>Banco de Dados</h5>
-                    <ProgressBar itemName="SQL Server" perc="60" cor="bg-warning" />
-                    <ProgressBar itemName="MondoDB" perc="45" cor="bg-success" />
-                    <ProgressBar itemName="MySQL" perc="75" cor="bg-primary" />
-                    <ProgressBar itemName="PostgreSQL" perc="75" cor="bg-danger" />
                 </div>
                 <div className="col-sm-12 col-md-6 col-lg-4">
                     <h5 className="mt-4" ref={skillRef}>TI - Service Desk</h5>
                     <ProgressBar itemName="Windows Server" perc="75" cor="bg-secondary" />
-                    <ProgressBar itemName="Redes Cisco" perc="60" cor="bg-success" />
-                    <ProgressBar itemName="CFTV" perc="50" cor="bg-primary" />
-                    <ProgressBar itemName="Monitoramento" perc="50" cor="bg-danger" />
+                    <ProgressBar itemName="Redes TCP/IP" perc="75" cor="bg-secondary" />
+                    <ProgressBar itemName="Linux" perc="50" cor="bg-secondary" />
+                    <ProgressBar itemName="Virtualização/Containers" perc="80" cor="bg-secondary" />
+                    <ProgressBar itemName="Manutenção H/S" perc="90" cor="bg-secondary" />
                 </div>
             </div>
         </section >
